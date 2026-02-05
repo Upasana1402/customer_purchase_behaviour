@@ -2,7 +2,7 @@
 ## Project overview
 
 This project replicates a real-world, end-to-end corporate data analytics workflow, turning raw data into actionable business insights. It demonstrates the ability to clean, analyse, and visualize data to support strategic data-driven decision-making and recommendations.
-The project covers the full analytics lifecycle:
+This project covers the full analytics lifecycle:
 
 *•	Data Preparation, Modelling & EDA (Python):* performed data cleaning, transformation, and exploring the dataset to ensure quality and reliability.
 
@@ -14,6 +14,7 @@ The project covers the full analytics lifecycle:
 
 ## Dataset Information
 •	The dataset contains 3,900 rows and 18 columns.
+
 *Key Features:*
 
 •	Customer Demographics: Age, gender, location, and subscription status
@@ -23,10 +24,10 @@ The project covers the full analytics lifecycle:
 •	Shopping Behaviour: Discount usage, promo codes, past purchases, purchase frequency, review ratings, and shipping type
 
 *Missing Data:* 
-•	37 missing values in the Review Rating column
+37 missing values in the Review Rating column
 
 *Tools*
-•	Pandas ,  SQL, Power BI
+Python(Pandas, Matplotlib), SQL, Power BI
 
 ## Methodology
 **1.Exploratory data analysis using Python-Pandas:**
