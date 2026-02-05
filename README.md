@@ -12,7 +12,7 @@ This project covers the full analytics lifecycle:
 
 *•	Reporting & Presentation:*  Delivered insights and actionable business recommendations based on data findings.
 
-## Objective:
+## Objective
 
 To analyze customer purchase data to identify key trends, understand the factors inflencing customer decisions and to uncover pattern related to discounts, reviews, shipping preferences, payment methods that drive engagement and repeated purchases.
 The insight is aimed to support improved customer enagagement and optimized product and market strategies.
@@ -29,9 +29,11 @@ The insight is aimed to support improved customer enagagement and optimized prod
 •	Shopping Behaviour: Discount usage, promo codes, past purchases, purchase frequency, review ratings, and shipping type
 
 *Missing Data:* 
+
 37 missing values in the Review Rating column
 
 *Tools*:
+
 Python(Pandas, Matplotlib), SQL, Power BI
 
 ## Methodology
