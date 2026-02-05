@@ -43,16 +43,51 @@ Started the project with data cleaning and preparation in Python to make the dat
 
 -Data Loading: Loaded the dataset using pandas.
 
--Initial Exploration: Reviewed dataset structure with df.info()  to check the structure and generated summary statistics using `df.describe()`.  
+-Initial Exploration: Reviewed dataset structure with `df.info()`  to check the structure and generated summary statistics using `df.describe(include= 'all')`.  
 
--Handling Missing values: Checked for null values using df.isna().sum() and imputed 37 missing entries in the Review rating column using the median rating of each product category.
+-Handling Missing values: Checked for null values using `df.isna().sum()` and imputed 37 missing entries in the Review rating column using the median rating of each product category `df['Review Rating']= df.groupby('Category')['Review Rating'].transform(lambda x: x. fillna(x.median()))`.
 
--Column Standardisation: Renamed columns to snake case for consistency and improve readability and documentation.
+-Column Standardisation: Renamed columns to snake case for consistency and improve readability and documentation
+```
+df.columns = df.columns.str.lower()
+
+df.columns = df.columns.str.replace(' ','_')
+
+df = df.rename(columns={'purchase_amount_(usd)': 'purchase_amount'})
+```
 
 -Feature Engineering:
-	Created an ‘age_group’ column by binning customer ages.
-	Derived a ‘purchase_frequency_days’ column from purchase data.
+Created an ‘age_group’ column by binning customer ages.
+```
+labels = ['Young adult', 'Adult', 'Middle-age', 'Senior']
+
+df['age_group'] = pd.qcut(df['age'], q=4, labels=labels)
+```	
+Derived a ‘purchase_frequency_days’ column from purchase data.
+
+```
+frequency_mapping = {
+    'Fortnightly':14,
+    'Weekly':7,
+    'Monthly':30,
+    'Quarterly':90,
+    'Bi-Weekly':14,
+    'Annually':365,
+    'Every 3 Months': 90
+        
+}
+
+df['purchase_frequence_days'] = df['frequency_of_purchases'].map(frequency_mapping)
+```
+
 -Data Validation: Compared ‘discount_applied’ and ‘promo_code_used’ to check duplicates; dropped ‘promo_code_used’- redundant column.
+
+```
+(df['discount_applied']==df['promo_code_used']).all()
+
+df = df.drop('promo_code_used', axis=1)
+```
+
 -Database Integration: Connected Python script to PostgreSQL and loaded the cleaned dataset into the database for SQL analysis.
 
 **2.Data analysis using SQL:**
